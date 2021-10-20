@@ -1,0 +1,31 @@
+<head>
+    <title>{{ if .Title }}{{ .Title }} | {{ end }}A Wildness of the Heart by Madison Scott-Clary</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- OpenGraph metadata -->
+    <meta property="og:title" content="{{ if .Params.title }}{{.Params.title | plainify }} | {{end}}A Wildness of the Heart" />
+    <meta property="og:site_name" content="A Wildness of the Heart | Madison Scott-Clary" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{ "/square.jpg" | absURL }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:description" content="A Wildness of the Heart: Limerent Object and Other Stories by Madison Scott-Clary" />
+
+    <!-- Twitter Card metadata -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@makyo_writes" />
+    <meta name="twitter:title" content="{{ if .Params.title }}{{.Params.title | plainify }} | {{end}}A Wildness of the Heart" />
+    <meta name="twitter:description" content="A Wildness of the Heart: Limerent Object and Other Stories by Madison Scott-Clary" />
+    <meta name="twitter:image" content="{{ "/square.jpg" | absURL }}" />
+
+    <!-- JSON-LD metadata -->
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "The Writing of Madison Scott-Clary",
+            "headline": "{{ if .Params.title }}{{.Params.title | plainify }} | {{end}}A Wildness of the Heart",
+            "description": "A Wildness of the Heart: Limerent Object and Other Stories by Madison Scott-Clary",
+            "url": "{{ .Permalink }}"
+        }
+    </script>
+</head>

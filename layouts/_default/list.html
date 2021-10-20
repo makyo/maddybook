@@ -1,0 +1,12 @@
+{{ define "main" }}
+{{ $paginator := .Paginate (where .Pages.ByPublishDate.Reverse ".Params.date" "!=" nil) 1 }}
+{{ $content := .Content }}
+{{ range $paginator.Pages.ByWeight }}
+<main id="main"{{ if (isset .Params "fit" )}} class="fit"{{ end }}>
+    asdf
+    {{ $content }}
+    {{ .Content }}
+    {{ end }}
+    {{ partial "pagination.html" . }}
+</main>
+{{end}}
