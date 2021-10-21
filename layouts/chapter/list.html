@@ -1,6 +1,6 @@
 {{ define "main" }}
 <main id="main">
-    <h2>Limerent Object</h2>
+    {{ if .Title }}<h2>{{ .Title }}</h2>{{ end }}
     {{ $paginator := .Paginate (.Pages) 1 }}
     {{ partial "pagination.html" . }}
     {{ range $paginator.Pages }}

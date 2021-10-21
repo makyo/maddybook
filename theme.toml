@@ -3,7 +3,7 @@
 
 name = "Maddybook"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
+licenselink = "https://github.com/makyo/maddybook/blob/master/LICENSE"
 description = "A theme for posting entire books"
 homepage = "http://example.com/"
 tags = []
@@ -11,8 +11,8 @@ features = []
 min_version = "0.41.0"
 
 [author]
-  name = "Madison Scott-Clary"
-  homepage = "https://makyo.ink"
+  name = "Your Name"
+  homepage = "https://example.com"
 
 # If porting an existing theme
 [original]
