@@ -141,6 +141,15 @@ img {
 h1, h2 {
     text-align: center;
 }
+header nav ul {
+    list-style-type: inline-block;
+    margin: 0.5rem;
+}
+header nav ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0 1rem;
+}
 
 @media only screen and (max-width: 640px) {
     body {
