@@ -1,6 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Gentium+Book+Basic");
+@font-face {
+    font-family: "Tom's New Roman";
+    font-weight: 400;
+    font-style: normal;
+    src: url("/tomnr.woff") format("woff");
+}
 header, footer {
     margin: 0 auto;
     max-width: 640px;
+    font-family: "Tom's New Roman", serif;
     font-size: 18pt;
     text-align: center;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -30,11 +38,15 @@ h1 small {
     margin: 1rem 0;
     padding: 0;
 }
+.title ul li a {
+    display: block;
+}
 .title ul li p:first-of-type {
+    font-family: "Tom's New Roman", serif;
     font-size: 20pt;
     text-align: center;
 }
-.title ul li p {
+.title ul li p, {
     text-indent: 0;
     text-align: justify;
 }
@@ -46,6 +58,9 @@ h1 small {
     text-align: center;
     margin: 0 auto;
 }
+.order p {
+    text-indent: 0;
+}
 .order a {
     display: inline-block;
     margin: 0.5rem;
@@ -54,6 +69,7 @@ ul.pagination {
     margin: 1rem 0;
     padding: 0;
     list-style-type: none;
+    font-family: "Tom's New Roman", serif;
     text-align: center;
 }
 li.page-item {
@@ -139,16 +155,8 @@ img {
     max-width: 100%;
 }
 h1, h2 {
+    font-family: "Tom's New Roman", sans-serif;
     text-align: center;
-}
-header nav ul {
-    list-style-type: inline-block;
-    margin: 0.5rem;
-}
-header nav ul li {
-    display: inline-block;
-    margin: 0;
-    padding: 0 1rem;
 }
 
 @media only screen and (max-width: 640px) {
@@ -164,3 +172,4 @@ header nav ul li {
         width: 50%;
     }
 }
+
