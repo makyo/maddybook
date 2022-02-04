@@ -167,6 +167,9 @@ header nav ul li {
         width: 100%;
         padding: 0 2rem;
     }
+    main {
+        text-align: left;
+    }
     .footnotes hr {
         width: 50%;
     }
