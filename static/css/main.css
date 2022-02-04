@@ -107,6 +107,13 @@ main blockquote p + p {
 main blockquote + p {
     text-indent: 0;
 }
+main .verse {
+    white-space: pre-wrap;
+    margin-left: 3em;
+}
+main .verse p {
+    text-indent: 0;
+}
 .footnotes {
     font-size: 80%;
 }
@@ -123,9 +130,6 @@ main blockquote + p {
 }
 .footnotes p {
     text-indent: 0;
-}
-.verse {
-    white-space: pre-wrap;
 }
 a {
     color: #262;
