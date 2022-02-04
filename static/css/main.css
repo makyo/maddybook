@@ -124,6 +124,9 @@ main blockquote + p {
 .footnotes p {
     text-indent: 0;
 }
+.verse {
+    white-space: pre-wrap;
+}
 a {
     color: #262;
 }

@@ -1,0 +1,4 @@
+{{/* `printf` required to prevent goldmark from refusing to markdownify .Inner */}}
+{{ printf "<div class=\"verse\">" | htmlUnescape | safeHTML }}
+{{ .Inner }}
+{{ printf "</div>" | htmlUnescape | safeHTML }}
