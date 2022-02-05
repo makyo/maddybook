@@ -254,6 +254,7 @@ a.footnote-ref {
     padding: 0 1px;
     border: 1px solid transparent;
     border-radius: 2px;
+    cursor: pointer;
 }
 .cite-ref {
     display: none;
