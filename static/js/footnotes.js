@@ -3,16 +3,24 @@ const modal = document.createElement('div');
 modal.classList.add('modal');
 modal.innerHTML = '<aside><h3></h3><q></q></aside>';
 const aside = modal.querySelector('aside');
+const header = modal.querySelector('h3');
+const content = modal.querySelector('q');
+
+function closeModal() {
+  modal.classList.remove('active');
+  header.innerHTML = '';
+  content.innerHTML = '';
+}
 
 // Allow clicking outside or hitting escape to close the modal.
 modal.onclick = (e) => {
   e.preventDefault();
-  modal.classList.remove('active');
+  closeModal();
 };
 document.onkeydown = (e) => {
   if (e.key === 'Escape') {
     e.preventDefault();
-    modal.classList.remove('active');
+    closeModal();
   }
 };
 aside.onclick = (e) => {
@@ -34,7 +42,7 @@ document.querySelectorAll('.footnotes li').forEach((fn) => {
   // Block the usual action of clicking the backref link, just close the modal
   fn.querySelector('.footnote-backref').onclick = (e) => {
     e.preventDefault();
-    modal.classList.remove('active');
+    closeModal();
   };
 })
 
@@ -43,8 +51,8 @@ document.querySelectorAll('.footnote-ref').forEach((fnRef) => {
   fnRef.onclick = (e) => {
     e.preventDefault();
     const id = fnRef.getAttribute('href').substring(1);
-    modal.querySelector('q').innerHTML = footnotes[id];
-    modal.querySelector('h3').innerText = id.split(':')[1];
+    content.innerHTML = footnotes[id];
+    header.innerText = id.split(':')[1];
     modal.classList.add('active');
     aside.style.top = `max(calc(50vh - 1rem - ${aside.clientHeight}px / 2), 0px)`;
   };
@@ -53,7 +61,8 @@ document.querySelectorAll('.footnote-ref').forEach((fnRef) => {
 // Do the same for citation references.
 document.querySelectorAll('.cite').forEach((cite) => {
   cite.onclick = (e) => {
-    modal.querySelector('q').innerHTML = cite.querySelector('.cite-ref').innerHTML;
+    header.innerText = cite.childNodes[0].textContent;
+    content.innerHTML = cite.querySelector('.cite-ref').innerHTML;
     modal.classList.add('active');
     aside.style.top = `max(calc(50vh - 1rem - ${aside.clientHeight}px / 2), 0px)`;
   };
