@@ -55,6 +55,7 @@ header, footer {
 }
 header {
     border-top: none;
+    padding-bottom: 1rem;
 }
 footer {
     border-bottom: none;
