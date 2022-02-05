@@ -254,32 +254,9 @@ a.footnote-ref {
     border: 1px solid transparent;
     border-radius: 2px;
 }
-.cite:hover {
-    border: 1px solid black;
-}
-.cite:hover + .cite-ref, .cite.active + .cite-ref {
-    display: block;
-}
 .cite-ref {
     display: none;
-    position: absolute;
-    background-color: #eee;
-    border: 1px solid black;
-    text-indent: 0 !important;
-    padding:0.5rem;
 }
-.cite-ref::before {
-    position: absolute;
-    left: 50%;
-    top: -5px;
-    content:'';
-    width: 5px;
-    height: 0;
-    border: solid black;
-    border-width: 0 5px 5px 0;
-    float: left;
-}
-
 
 @media only screen and (max-width: 640px) {
     body {
