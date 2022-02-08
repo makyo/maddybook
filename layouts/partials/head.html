@@ -2,7 +2,7 @@
     <title>{{ partial "title/full.html" . }}</title>
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
     {{ range .Site.Params.customCSS }}
-        <link rel="stylesheet" type="text/css" href="{{ . | relURL }}" />
+        <link rel="stylesheet" type="text/css" href="{{ . }}" />
     {{ end }}
     <meta name="viewport" content="width=device-width" />
     <!-- OpenGraph metadata -->
