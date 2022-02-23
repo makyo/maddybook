@@ -199,6 +199,7 @@ h1, h2 {
 header nav ul {
     list-style-type: inline-block;
     margin: 0.5rem;
+    padding: 0;
 }
 header nav ul li {
     display: inline-block;
