@@ -34,7 +34,13 @@ aside.onclick = (e) => {
 document.querySelector('main').appendChild(modal);
 
 // Collect all of the footnotes and hide the static display.
-document.querySelector('.footnotes').style.display = 'none';
+try {
+  document.querySelector('.footnotes').style.display = 'none';
+} catch(e) {
+  const fakeFootnotes = document.createElement('div');
+  fakeFootnotes.classList.add('footnotes');
+  document.querySelector('main').appendChild(fakeFootnotes);
+}
 let footnotes = {};
 document.querySelectorAll('.footnotes li').forEach((fn) => {
   footnotes[fn.getAttribute('id')] = fn.innerHTML;
