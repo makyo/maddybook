@@ -14,19 +14,15 @@ function closeModal() {
 
 // Allow clicking outside or hitting escape to close the modal.
 modal.onclick = (e) => {
-  e.preventDefault();
-  closeModal();
+  if (e.target.classList.contains('modal')) {
+    e.preventDefault();
+    closeModal();
+  }
 };
 document.onkeydown = (e) => {
   if (e.key === 'Escape') {
     e.preventDefault();
     closeModal();
-  }
-};
-aside.onclick = (e) => {
-  // We want users to be able to select modal text, so stop click events except on backref link.
-  if (e.target.className !== 'footnote-backref') {
-    e.stopPropagation();
   }
 };
 
@@ -44,24 +40,30 @@ try {
 let footnotes = {};
 document.querySelectorAll('.footnotes li').forEach((fn) => {
   footnotes[fn.getAttribute('id')] = fn.innerHTML;
-
-  // Block the usual action of clicking the backref link, just close the modal
-  fn.querySelector('.footnote-backref').onclick = (e) => {
-    e.preventDefault();
-    closeModal();
-  };
 })
 
 // For each ref link, set up an event that populates the modal.
-document.querySelectorAll('.footnote-ref').forEach((fnRef) => {
-  fnRef.onclick = (e) => {
-    e.preventDefault();
-    const id = fnRef.getAttribute('href').substring(1);
-    content.innerHTML = footnotes[id];
-    header.innerText = id.split(':')[1];
-    modal.classList.add('active');
-    aside.style.top = `max(calc(50vh - 1rem - ${aside.clientHeight}px / 2), 0px)`;
+function fnClick(e) {
+  e.preventDefault();
+  const id = e.target.getAttribute('href').substring(1);
+  content.innerHTML = footnotes[id];
+  header.innerText = id.split(':')[1];
+  modal.classList.add('active');
+  aside.style.top = `max(calc(50vh - 1rem - ${aside.clientHeight}px / 2), 0px)`;
+
+  // Block the usual action of clicking the backref link, just close the modal
+  content.querySelector('.footnote-backref').onclick = (ee) => {
+    ee.preventDefault();
+    closeModal();
   };
+
+  // Allow nested footnotes
+  content.querySelectorAll('.footnote-ref').forEach((fnRefNested) => {
+    fnRefNested.onclick = fnClick;
+  });
+}
+document.querySelectorAll('.footnote-ref').forEach((fnRef) => {
+  fnRef.onclick = fnClick;
 });
 
 // Do the same for citation references.

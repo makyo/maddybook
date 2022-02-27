@@ -58,6 +58,8 @@ header {
     padding-bottom: 1rem;
 }
 footer {
+    padding: 1rem 0;
+    margin-top: 1rem;
     border-bottom: none;
 }
 header a, header a:visited, header a:active, header a:hover {
