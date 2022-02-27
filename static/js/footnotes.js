@@ -61,17 +61,21 @@ function fnClick(e) {
   content.querySelectorAll('.footnote-ref').forEach((fnRefNested) => {
     fnRefNested.onclick = fnClick;
   });
+  content.querySelectorAll('.cite').forEach((citeNested) => {
+    citeNested.onclick = citeClick;
+  });
 }
 document.querySelectorAll('.footnote-ref').forEach((fnRef) => {
   fnRef.onclick = fnClick;
 });
 
 // Do the same for citation references.
+function citeClick(e) {
+  header.innerText = e.target.childNodes[0].textContent;
+  content.innerHTML = e.target.querySelector('.cite-ref').innerHTML;
+  modal.classList.add('active');
+  aside.style.top = `max(calc(50vh - 1rem - ${aside.clientHeight}px / 2), 0px)`;
+}
 document.querySelectorAll('.cite').forEach((cite) => {
-  cite.onclick = (e) => {
-    header.innerText = cite.childNodes[0].textContent;
-    content.innerHTML = cite.querySelector('.cite-ref').innerHTML;
-    modal.classList.add('active');
-    aside.style.top = `max(calc(50vh - 1rem - ${aside.clientHeight}px / 2), 0px)`;
-  };
+  cite.onclick = citeClick;
 });
