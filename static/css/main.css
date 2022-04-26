@@ -115,6 +115,15 @@ li.page-item a {
     padding: 0 0.5rem;
     margin: 0;
 }
+dl {
+    margin: 1rem 0;
+}
+dt {
+    text-decoration: underline;
+}
+dd {
+    margin-left: 2rem;
+}
 hr {
     border: none;
     width: 3rem;
@@ -154,7 +163,7 @@ main blockquote p {
 main blockquote p + p {
     margin-top: 1rem;
 }
-main blockquote + p {
+main blockquote + p, main dl + p {
     text-indent: 0;
 }
 main .verse {
