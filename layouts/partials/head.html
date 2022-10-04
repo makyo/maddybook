@@ -9,7 +9,7 @@
     <meta property="og:title" content="{{ partial "title/full.html" . }}" />
     <meta property="og:site_name" content="{{ partial "title/short.html" . }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{ "/square.jpg" | absURL }}" />
+    <meta property="og:image" content="{{ if .Params.ogimg }}{{ .Params.ogimg | absURL }}{{else}}{{ "/square.jpg" | absURL }}{{ end }}" />
     <meta property="og:url" content="{{ .Permalink }}" />
     <meta property="og:description" content="{{ partial "title/site.html" . }}" />
 
