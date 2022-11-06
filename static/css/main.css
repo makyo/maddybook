@@ -221,6 +221,7 @@ header nav ul li {
     margin-top: 0.5rem;
 }
 .buy a {
+    display: inline-block;
     font-size: 14pt;
     padding: 0.5rem;
     background-color: #eee;
@@ -264,9 +265,9 @@ header nav ul li {
   text-align: center;
 }
 a.footnote-ref {
-    font-weight: bolder;
     text-decoration: none;
-    background-color: #ddd;
+    background-color: #eee;
+    font-size: 75%;
     margin: 1px;
     padding: 1px;
     border: 1px solid transparent;
