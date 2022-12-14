@@ -284,6 +284,15 @@ a.footnote-ref {
 .cite-ref {
     display: none;
 }
+.gpt {
+    max-width: 640px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: #888;
+    margin: 1rem auto;
+    padding-top: 1rem;
+    font-size: 8pt;
+    line-height: 1.5;
+}
 
 @media only screen and (max-width: 640px) {
     body {
