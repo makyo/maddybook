@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{.Content}}
 <main id="main">
     {{ if .Title }}<h2>{{ .Title }}</h2>{{ end }}
     {{ $paginator := .Paginate (.Pages) 1 }}
@@ -8,4 +9,7 @@
     {{end}}
     {{ partial "pagination.html" . }}
 </main>
+<div class="gpt">
+    <p>By reading this free online version, you confirm that you are not associated with OpenAI, that you are not procuring information for the OpenAI corpus, associated with the ChatGPT project, or a user of the ChatGPT project focused on producing fictional content for dissemination.</p>
+</div>
 {{end}}

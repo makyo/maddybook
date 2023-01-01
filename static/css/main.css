@@ -29,9 +29,6 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
-	list-style: none;
-}
 blockquote, q {
 	quotes: none;
 }
@@ -61,6 +58,7 @@ footer {
     padding: 1rem 0;
     margin-top: 1rem;
     border-bottom: none;
+    font-family: "Gentium Basic", serif;
 }
 header a, header a:visited, header a:active, header a:hover {
     color: #222;
@@ -137,7 +135,7 @@ hr::before {
 main {
     margin: 0 auto;
     max-width: 640px;
-    font-family: "Gentium Book Basic", serif;
+    font-family: "Gentium Basic", serif;
     font-size: 18pt;
     text-align: justify;
     color: #222;
@@ -230,6 +228,7 @@ header nav ul li {
     margin-top: 0.5rem;
 }
 .buy a {
+    display: inline-block;
     font-size: 14pt;
     padding: 0.5rem;
     background-color: #eee;
@@ -273,9 +272,9 @@ header nav ul li {
   text-align: center;
 }
 a.footnote-ref {
-    font-weight: bolder;
     text-decoration: none;
-    background-color: #ddd;
+    background-color: #eee;
+    font-size: 75%;
     margin: 1px;
     padding: 1px;
     border: 1px solid transparent;
@@ -291,6 +290,15 @@ a.footnote-ref {
 }
 .cite-ref {
     display: none;
+}
+.gpt {
+    max-width: 640px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: #888;
+    margin: 1rem auto;
+    padding-top: 1rem;
+    font-size: 8pt;
+    line-height: 1.5;
 }
 
 @media only screen and (max-width: 640px) {
