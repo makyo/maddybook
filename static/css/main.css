@@ -163,7 +163,14 @@ main blockquote p {
 main blockquote p + p {
     margin-top: 1rem;
 }
-main blockquote + p, main dl + p {
+main blockquote + p,
+main dl + p,
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
     text-indent: 0;
 }
 main .verse {
