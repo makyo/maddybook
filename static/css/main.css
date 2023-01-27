@@ -293,6 +293,9 @@ a.footnote-ref {
     font-size: 8pt;
     line-height: 1.5;
 }
+.gpt p {
+    text-align: center;
+}
 
 @media only screen and (max-width: 640px) {
     body {
