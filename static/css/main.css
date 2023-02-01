@@ -209,6 +209,15 @@ a:visited {
 img {
     max-width: 100%;
 }
+figure {
+    margin: 1rem auto;
+    max-width: 90%;
+}
+figcaption {
+    text-align: center;
+    opacity: 0.9;
+    font-size: 50%;
+}
 h1, h2 {
     text-align: center;
 }
