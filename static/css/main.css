@@ -42,7 +42,6 @@ table {
 	border-spacing: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Gentium+Plus&display=swap');
 header, footer {
     margin: 0 auto;
     max-width: 640px;
@@ -59,7 +58,7 @@ footer {
     padding: 1rem 0;
     margin-top: 1rem;
     border-bottom: none;
-    font-family: "Gentium Plus", serif;
+    font-family: 'Gentium Plus', serif;
 }
 header a, header a:visited, header a:active, header a:hover {
     color: #222;
@@ -136,7 +135,7 @@ hr::before {
 main {
     margin: 0 auto;
     max-width: 640px;
-    font-family: "Gentium Plus", serif;
+    font-family: 'Gentium Plus', serif;
     font-size: 18pt;
     text-align: justify;
     color: #222;
