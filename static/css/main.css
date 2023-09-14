@@ -120,7 +120,7 @@ dt {
     text-decoration: underline;
 }
 dd {
-    margin-left: 2rem;
+    margin: 0 0 1rem 2rem;
 }
 hr {
     border: none;
