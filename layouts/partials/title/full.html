@@ -1,1 +1,1 @@
-{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title | plainify }}{{ if .Site.Params.subtitle }} - {{ .Site.Params.subtitle }}{{ end }} | {{ .Site.Params.author }}
+{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title | plainify }}{{ if .Site.Params.subtitle }} - {{ .Site.Params.subtitle }}{{ end }} | {{ if .Page.Params.author }}{{ .Page.Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}
