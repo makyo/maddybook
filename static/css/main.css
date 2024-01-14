@@ -113,6 +113,10 @@ li.page-item a {
     padding: 0 0.5rem;
     margin: 0;
 }
+li.page-item.active a {
+    font-style: italic;
+    text-decoration: none;
+}
 dl {
     margin: 1rem 0;
 }

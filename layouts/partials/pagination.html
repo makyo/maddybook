@@ -7,7 +7,7 @@
             <a class="page-link"{{ if $paginator.HasPrev }} href="{{ $paginator.Prev.URL }}"{{ end }}><svg width="20" height="16"><path fill="none" stroke="currentColor" stroke-width="3" d="M 20 0 l -10 8 l 10 8" /><circle cx="19" cy="8" r="2" stroke="none" fill="currentColor" /></svg></a>
         </li>
         {{ end}}
-        {{ if lt $paginator.TotalPages 5 }}
+        {{ if lt $paginator.TotalPages 10 }}
         {{ range $paginator.Pagers }}
         <li class="page-item{{ if eq . $paginator}} active{{ end }}">
             <a class="page-link" href="{{ .URL }}">{{ .PageNumber }}{{ if eq . $paginator}}<span class="sr-only"></span>{{ end }}</a>
