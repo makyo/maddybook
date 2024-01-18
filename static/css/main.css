@@ -242,15 +242,14 @@ header nav ul {
     margin: 0.5rem;
     padding: 0;
 }
-header nav ul li {
+header nav > ul > li {
     display: inline-block;
     margin: 0;
-    padding: 0 1rem;
+    width: calc(100% / 6);
 }
 header nav details {
     position: relative;
 }
-
 header nav details > ul {
     position: absolute;
     z-index: 1000;
@@ -258,18 +257,23 @@ header nav details > ul {
     border: 1px  solid #ccc;
     border-radius: 3px;
     padding: 0.5rem;
-    min-width: 13rem;
+    min-width: 15rem;
 }
 
 header nav details ul ul {
     margin-left: 1rem;
+    width: 100%;
 }
 
 header nav details ul li {
     display: block;
     text-align: left;
-    margin: 0.25rem 0;
+    margin: 1rem 0;
 }
+header nav details[open] > summary {
+    font-weight: bold;
+}
+
 .buy {
     text-align: center;
     text-indent: 0;
