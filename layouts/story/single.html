@@ -1,0 +1,16 @@
+
+{{ define "main" }}
+  <main id="main" class="story">
+    <h2>{{ .Title }}</h2>
+    <h3 class="author">{{ .Params.author }}</h3>
+    <hr/>
+    <h2 class="character">{{ .Params.character }}</h3>
+    {{ if .Params.cw }}<div class="cw">{{ .Params.cw }}</div>{{ end }}
+    {{ if .Params.spoiler }}<div class="spoiler-note">{{ .Params.spoiler | markdownify }}</div>{{ end }}
+
+    {{ .Content }}
+  </main>
+<div class="gpt">
+    <p>By reading this free online version, you confirm that you are not associated with OpenAI, that you are not procuring information for the OpenAI corpus, associated with the ChatGPT project, or a user of the ChatGPT project focused on producing fictional content for dissemination.</p>
+</div>
+{{ end }}
