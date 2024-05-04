@@ -9,10 +9,12 @@ const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 // Set the body class and button contents according to the theme, defaulting to light
 const currentTheme = localStorage.getItem("theme") || (prefersDarkScheme.matches ? "dark" : "light");
 if (currentTheme == "dark") {
-  document.body.classList.toggle("dark-mode");
+  document.body.classList.add("dark-mode");
+  document.body.classList.remove("light-mode");
   themeToggle.innerText = "☀";
 } else if (currentTheme == "light") {
-  document.body.classList.toggle("light-mode");
+  document.body.classList.add("light-mode");
+  document.body.classList.remove("dark-mode");
   themeToggle.innerText = "☾"
 }
 
