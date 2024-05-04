@@ -48,7 +48,7 @@ header, footer {
     font-size: 16pt;
     text-align: center;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom:1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 header {
     border-top: none;
@@ -373,5 +373,84 @@ a.footnote-ref {
     }
     .modal.active aside {
         width: calc(100% - 3rem);
+    }
+}
+
+/******************************************/
+
+header button.theme-toggle {
+    float: right;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+body.dark-mode,
+body.dark-mode header *,
+body.dark-mode main *,
+body.dark-mode footer * {
+    background-color: #222;
+    color: #eee;
+}
+
+body.dark-mode main a,
+body.dark-mode main a:active,
+body.dark-mode main a:hover,
+body.dark-mode main a:visited {
+    color: #fff;
+}
+
+body.dark-mode header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+body.dark-mode footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .theme-toggle {
+    background-color: #fff;
+    color: #222;
+}
+
+body.light-mode .theme-toggle {
+    background-color: #222;
+    color: #eee;
+}
+
+/* Apply the filter directly on the body tag */
+body.dark-mode img {
+  filter: brightness(.8) contrast(1.2);
+}
+ 
+/* Or apply it via media query */
+@media (prefers-color-scheme: dark) {
+    img {
+        filter: brightness(.8) contrast(1.2);
+    }
+
+    body,
+    body header *,
+    body main *,
+    body footer * {
+        background-color: #222;
+        color: #eee;
+    }
+
+    body main a,
+    body main a:active,
+    body main a:hover,
+    body main a:visited {
+        color: #fff;
+    }
+
+    body header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    body footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 }
