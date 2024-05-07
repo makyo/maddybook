@@ -440,13 +440,18 @@ body.dark-mode a.footnote-ref {
 
 /* Apply the filter directly on the body tag */
 body.dark-mode img {
-  filter: brightness(.8) contrast(1.2);
+  filter: brightness(0.8) contrast(1.2);
+}
+
+body.dark-mode img.invertable {
+    filter: invert(1) brightness(0.8) contrast(1.2);
+    background-color: transparent;
 }
  
 /* Or apply it via media query */
 @media (prefers-color-scheme: dark) {
     img {
-        filter: brightness(.8) contrast(1.2);
+        filter: brightness(0.8) contrast(1.2);
     }
 
     body,
@@ -479,6 +484,11 @@ body.dark-mode img {
 
     body a.footnote-ref {
         background-color: #333;
+    }
+
+    body img.invertable {
+        filter: invert(1) brightness(0.8) contrast(1.2);
+        background-color: transparent;
     }
 
     body header {
