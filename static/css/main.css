@@ -421,6 +421,23 @@ body.light-mode .theme-toggle {
     color: #eee;
 }
 
+body.dark-mode .modal.active {
+    background-color: rgba(255, 240, 250, 0.1);
+}
+
+body.dark-mode .modal.active aside {
+    background-color: #222;
+    box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .modal.active aside aside {
+    background-color: #222;
+}
+
+body.dark-mode a.footnote-ref {
+    background-color: #333;
+}
+
 /* Apply the filter directly on the body tag */
 body.dark-mode img {
   filter: brightness(.8) contrast(1.2);
@@ -445,6 +462,23 @@ body.dark-mode img {
     body main a:hover,
     body main a:visited {
         color: #fff;
+    }
+
+    body .modal.active {
+        background-color: rgba(255, 240, 250, 0.1);
+    }
+
+    body .modal.active aside {
+        background-color: #222;
+        box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    }
+
+    body .modal.active aside aside {
+        background-color: #222;
+    }
+
+    body a.footnote-ref {
+        background-color: #333;
     }
 
     body header {
