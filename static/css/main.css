@@ -53,6 +53,7 @@ header, footer {
 header {
     border-top: none;
     padding-bottom: 1rem;
+    position: relative;
 }
 footer {
     padding: 1rem 0;
@@ -379,7 +380,9 @@ a.footnote-ref {
 /******************************************/
 
 header button.theme-toggle {
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 2rem;
     height: 2rem;
     border: 1px solid transparent;
