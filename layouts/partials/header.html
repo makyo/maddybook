@@ -1,5 +1,5 @@
 <header>
-    <button class="theme-toggle" title="Toggle light/dark theme">☾</button>
+    <button class="theme-toggle" title="Toggle light/dark theme"></button>
     <script src="/js/theme.js"></script>
     <h1><a href="/">{{ .Site.Title }}</a>{{ if .Site.Params.subtitle }}<small>{{ if .Site.Params.subtitleLink }}<a href="{{ .Site.Params.subtitleLink }}" target="_blank">{{ end }}{{ .Site.Params.subtitle }}{{ if .Site.Params.subtitleLink }}</a>{{ end }}</small>{{ end }}</h1>
     {{ partial "nav.html" . }}

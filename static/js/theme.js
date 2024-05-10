@@ -11,11 +11,9 @@ const currentTheme = localStorage.getItem("theme") || (prefersDarkScheme.matches
 if (currentTheme == "dark") {
   document.body.classList.add("dark-mode");
   document.body.classList.remove("light-mode");
-  themeToggle.innerText = "☀";
 } else if (currentTheme == "light") {
   document.body.classList.add("light-mode");
   document.body.classList.remove("dark-mode");
-  themeToggle.innerText = "☾"
 }
 
 // A bit redundant, but in the cases where the theme has not yet been set, we want make sure it finds its way into localStorage.
@@ -28,5 +26,4 @@ themeToggle.addEventListener("click", function() {
   const theme = localStorage.getItem("theme") == "dark" ? "light" : "dark";
 
   localStorage.setItem("theme", theme);
-  themeToggle.innerText = theme == "light" ? "☾" : "☀" ;
 });
