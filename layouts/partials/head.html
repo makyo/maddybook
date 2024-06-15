@@ -12,24 +12,24 @@
     <meta property="og:title" content="{{ partial "title/full.html" . }}" />
     <meta property="og:site_name" content="{{ partial "title/short.html" . }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{ if .Params.ogimg }}{{ .Params.ogimg | absURL }}{{else}}{{ "/img/square.png" | absURL }}{{ end }}" />
+    <meta property="og:image" content="{{ if .Site.Params.ogimg }}{{ .Site.Params.ogimg | absURL }}{{else}}{{ "/square.png" | absURL }}{{ end }}" />
     <meta property="og:url" content="{{ .Permalink }}" />
-    <meta property="og:description" content="{{ partial "title/site.html" . }}" />
+    <meta property="og:description" content="{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . }}{{ end }}" />
 
     <!-- Twitter Card metadata -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@makyo_writes" />
     <meta name="twitter:title" content="{{ partial "title/full.html" . }}" />
-    <meta name="twitter:description" content="{{ partial "title/site.html" . }}" />
-    <meta name="twitter:image" content="{{ "/square.jpg" | absURL }}" />
+    <meta name="twitter:description" content="{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . }}{{ end }}" />
+    <meta name="twitter:image" content="{{ if .Params.ogimg }}{{ .Params.ogimg | absURL }}{{else}}{{ "/square.png" | absURL }}{{ end }}" />
 
     <!-- JSON-LD metadata -->
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "name": "{{ partial "title/site.html" . }}",
-            "headline": "{{ partial "title/full.html" . }}",
+            "name": "{{ partial "title/full.html" . }}",
+            "headline": "{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . }}{{ end }}",
             "url": "{{ .Permalink }}"
         }
     </script>
