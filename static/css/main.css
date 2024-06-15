@@ -362,11 +362,17 @@ a.footnote-ref {
         padding: 0;
         margin: 0;
     }
-    main, header, footer {
+    header {
         width: 100%;
         padding: 0 2rem;
     }
+    footer {
+        width: 100%;
+        padding: 1rem 2rem;
+    }
     main {
+        width: 100%;
+        padding: 0 2rem;
         text-align: left;
     }
     .footnotes hr {
