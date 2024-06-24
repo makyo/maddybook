@@ -1,5 +1,5 @@
 <head>
-    <title>{{ partial "title/full.html" . }}</title>
+    <title>{{ partial "title/full.html" . | trim "\r\n" }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -9,18 +9,18 @@
     {{ end }}
     <meta name="viewport" content="width=device-width" />
     <!-- OpenGraph metadata -->
-    <meta property="og:title" content="{{ partial "title/full.html" . }}" />
-    <meta property="og:site_name" content="{{ partial "title/short.html" . }}" />
+    <meta property="og:title" content="{{ partial "title/full.html" . | trim "\r\n" }}" />
+    <meta property="og:site_name" content="{{ partial "title/short.html" . | trim "\r\n" }}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="{{ if .Site.Params.ogimg }}{{ .Site.Params.ogimg | absURL }}{{else}}{{ "/square.png" | absURL }}{{ end }}" />
     <meta property="og:url" content="{{ .Permalink }}" />
-    <meta property="og:description" content="{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . }}{{ end }}" />
+    <meta property="og:description" content="{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . | trim "\r\n" }}{{ end }}" />
 
     <!-- Twitter Card metadata -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@makyo_writes" />
-    <meta name="twitter:title" content="{{ partial "title/full.html" . }}" />
-    <meta name="twitter:description" content="{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . }}{{ end }}" />
+    <meta name="twitter:title" content="{{ partial "title/full.html" . | trim "\r\n" }}" />
+    <meta name="twitter:description" content="{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . | trim "\r\n" }}{{ end }}" />
     <meta name="twitter:image" content="{{ if .Params.ogimg }}{{ .Params.ogimg | absURL }}{{else}}{{ "/square.png" | absURL }}{{ end }}" />
 
     <!-- JSON-LD metadata -->
@@ -28,8 +28,8 @@
         {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "name": "{{ partial "title/full.html" . }}",
-            "headline": "{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . }}{{ end }}",
+            "name": "{{ partial "title/full.html" . | trim "\r\n" }}",
+            "headline": "{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . | trim "\r\n" }}{{ end }}",
             "url": "{{ .Permalink }}"
         }
     </script>
