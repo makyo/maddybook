@@ -235,6 +235,19 @@ figcaption {
     text-align: center;
     opacity: 0.9;
     font-size: 50%;
+    text-indent: 0;
+}
+figure.float {
+    max-width: 50%;
+    margin: 1rem 0;
+}
+figure.right {
+    float: right;
+    margin-left: 1rem;
+}
+figure.left {
+    float: left;
+    margin-right: 1rem;
 }
 h1, h2 {
     text-align: center;
@@ -385,6 +398,14 @@ a.footnote-ref {
     }
     .modal.active aside {
         width: calc(100% - 3rem);
+    }
+    figure.float,
+    figure.right,
+    figure.left {
+        margin: 1rem auto;
+        max-width: 90%;
+        float: none;
+        text-indent: 0;
     }
 }
 
