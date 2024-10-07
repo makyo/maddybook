@@ -252,6 +252,16 @@ figure.left {
 h1, h2 {
     text-align: center;
 }
+thead th {
+    text-align: center;
+}
+tbody td {
+    padding: 0.5rem;
+    border: 1px solid transparent;
+}
+tbody tr:nth-of-type(odd) td {
+    background-color: #ddd;
+}
 header nav ul {
     list-style-type: inline-block;
     margin: 0.5rem;
@@ -503,6 +513,10 @@ body.dark-mode img.invertable {
     filter: invert(1) brightness(0.8) contrast(1.2);
     background-color: transparent;
 }
+
+body.dark-mode tbody tr:nth-of-type(odd) td {
+    background-color: #333;
+}
  
 /* Or apply it via media query */
 @media (prefers-color-scheme: dark) {
@@ -552,5 +566,9 @@ body.dark-mode img.invertable {
     }
     body footer {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    body tbody tr:nth-of-type(odd) {
+        background-color: #333;
     }
 }
