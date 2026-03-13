@@ -1,0 +1,22 @@
+{{- $works := index hugo.Data (.Get "corpus") }}
+{{- $collections := index hugo.Data (.Get "collections") }}
+{{- $creators := index hugo.Data (.Get "creators") }}
+<section class="works">
+
+    <dl>
+        {{- range $work := sort (where (where $works "collection" nil) "parent" nil) "title" "asc" }}
+        {{ partial "work.html" (dict "work" $work "works" $works "creators" $creators) }}
+        {{- end }}
+    </dl>
+
+    {{- range $collection := $collections }}
+    <h2>{{ $collection.title }}</h2>
+
+    <dl>
+        {{- range $work := where $works "collection" $collection.id }}
+        {{ partial "work.html" (dict "work" $work "works" $works "creators" $creators) }}
+        {{- end }}
+    </dl>
+    {{- end }}
+
+</section>
