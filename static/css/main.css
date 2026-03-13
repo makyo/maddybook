@@ -306,6 +306,7 @@ header nav details[open] > summary {
     background: rgba(127, 127, 127, 0.2);
     margin: 0;
     padding: 0 0 0.25rem 1rem;
+    text-decoration: none;
 }
 .works .author {
     font-size: 14pt;
