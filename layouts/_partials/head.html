@@ -3,7 +3,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    {{ with resources.Get "scss/main.scss" }}
+      {{ $opts := dict
+        "enableSourceMap" hugo.IsDevelopment
+        "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
+        "targetPath" "css/main.css"
+        "transpiler" "dartsass"
+        "vars" site.Params.styles
+        "includePaths" (slice "node_modules/bootstrap/scss")
+      }}
+      {{ with . | toCSS $opts }}
+        {{ if hugo.IsDevelopment }}
+          <link rel="stylesheet" href="{{ .RelPermalink }}">
+        {{ else }}
+          {{ with . | fingerprint }}
+            <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
     {{ range .Site.Params.customCSS }}
         <link rel="stylesheet" type="text/css" href="{{ . }}" />
     {{ end }}

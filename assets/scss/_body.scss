@@ -1,0 +1,199 @@
+@use "variables" as *;
+
+main {
+    margin: 0 auto;
+    max-width: 640px;
+    font-family: $font-body;
+    font-size: 18pt;
+    text-align: justify;
+    color: $text-dark;
+    line-height: 1.5;
+
+    
+    /*
+     * Sections
+     */
+
+    hr {
+        border: none;
+        width: 3rem;
+        margin: 1rem auto;
+        &::before {
+            content: '§';
+            display: block;
+            text-align: center; 
+        }
+    }
+
+
+
+    /*
+     * Paragraphs and text
+     */
+
+    // Use indented paragraphs rather than vertically separated paragraphs.
+    p {
+        margin: 0;
+        text-indent: 2rem;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+
+        &:first-of-type {
+            text-indent: 0;
+        }
+    }
+    
+    // No indent on first paragraph following quotes, section breaks, lists, and headers.
+    blockquote, hr,
+    dl, ul, ol,
+    h1, h2, h3, h4, h5, h6 {
+        & + p {
+            text-indent: 0;
+        }
+    }
+
+    a {
+        color: $link-dark;
+
+        &:visited {
+            color: $link-visited-dark;
+        }
+    }
+
+
+    /*
+     * Tables
+     */
+
+    thead th {
+        text-align: center;
+    }
+
+    tbody {
+        td {
+            padding: 0.5rem;
+            border: 1px solid transparent;
+        }
+
+        tr:nth-of-type(odd) td {
+            background-color: $bg-feature-light;
+        }
+    }
+
+
+    /*
+     * Images
+     */
+
+    img {
+        max-width: 100%;
+    }
+
+    figure {
+        margin: 1rem auto;
+        max-width: 90%;
+
+        &.float {
+            max-width: 50%;
+            margin: 1rem 0;
+        }
+
+        &.right {
+            float: right;
+            margin-left: 1rem;
+        }
+
+        &.left {
+            float: left;
+            margin-right: 1rem;
+        }
+    }
+
+    figcaption {
+        text-align: center;
+        text-indent: 0;
+        opacity: 0.9;
+        font-size: 50%;
+    }
+
+
+    /*
+     * Semantic elements
+     */
+
+    blockquote {
+        margin: 1rem 0;
+        padding: 0 0 0 2rem;
+        border-left: 3px solid $border-callout;
+
+        // Use vertically-separated paragraphs rather than indented paragraphs inside quotes.
+        p {
+            text-indent: 0;
+
+            & + p {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    dl {
+        margin: 1rem 0;
+
+        dt {
+            text-decoration: underline;
+        }
+
+        dd {
+            margin: 0 0 1rem 2rem;
+        }
+    }
+
+    %preformatted {
+        font-size: 14pt;
+        background-color: $bg-feature-light;
+        border: 0px solid transparent;
+        border-radius: 2px;
+        padding: 0 1px;
+    }
+
+    code {
+        @extend %preformatted;
+    }
+
+    pre {
+        @extend %preformatted;
+        padding: 0.25rem 1rem;
+        margin: 1rem 0;
+        overflow-y: scroll;
+    }
+
+    .verse {
+        white-space: pre-wrap;
+        margin-left: 3rem;
+
+        p {
+            text-indent: 0;
+        }
+    }
+
+    // Footnotes moved to _modal.scss
+    
+
+    /*
+     * AI warning
+     */
+
+    .gpt {
+        max-width: 640px;
+        border-top: 1px solid $border-soft;
+        color: $text-mid;
+        margin: 1rem auto;
+        padding-top: 1rem;
+        font-size: 8pt;
+        line-height: 1.5;
+        
+        p {
+            text-align: center;
+        }
+    }
+}

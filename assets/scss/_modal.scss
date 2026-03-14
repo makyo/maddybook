@@ -1,0 +1,89 @@
+@use "variables" as *;
+
+.footnotes {
+    font-size: 80%;
+
+    ol {
+        padding-left: 1.5rem;
+    }
+
+    hr {
+        margin-left: 0;
+        width: 25%;
+        border-top: 1px solid $text-dark;
+
+        &::before {
+            content: '';
+        }
+    }
+
+    // Use vertically-separated paragraphs rather than indented paragraphs inside footnotes.
+    p {
+        text-indent: 0;
+
+        & + p {
+            margin-top: 1rem;
+        }
+    }
+}
+
+.footnote-ref {
+    text-decoration: none;
+    background-color: $bg-feature-light;
+    font-size: 75%;
+    margin: 1px;
+    padding: 1px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+.cite {
+    background-color: $bg-feature-light;
+    padding: 0 1px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.cite-ref {
+    display: none;
+}
+
+.modal {
+    display: none;
+
+    &.active {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $bg-modal-light;
+
+        aside {
+            position: relative;
+            background-color: $bg-light;
+            display: block;
+            border: 1px solid $border-hard;
+            box-shadow: 2px 2px 4px $shadow-modal-light;
+            max-width: calc(640px - 2rem);
+            max-height: calc(100vh - 3rem);
+            margin: 0.5rem auto;
+            padding: 1rem;
+            overflow: auto;
+
+            aside {
+                background-color: $bg-feature-light;
+            }
+
+            q:before, q:after {
+                content: '';
+            }
+
+            h3 {
+                text-align: center;
+            }
+        }
+    }
+}

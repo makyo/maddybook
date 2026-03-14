@@ -1,0 +1,33 @@
+@use "variables" as *;
+
+.works {
+    dt {
+        background: $bg-works-header;
+        margin: 0;
+        padding: 0 0 0.25rem 1rem;
+        text-decoration: none;
+
+        .author {
+            font-size: 70%;
+            font-style: italic;
+            opacity: 0.75;
+        }
+    }
+
+    dd {
+        background-color: $bg-works-body;
+        margin: 0 0 2rem 0;
+        padding: 0.25rem 1rem 0.25rem 2rem;
+        font-size: 80%;
+
+        h2 {
+            margin-top: 4rem;
+        }
+
+        .meta {
+            font-size: 70%;
+            list-style-type: none;
+            padding-top: 0.5rem;
+        }
+    }
+}

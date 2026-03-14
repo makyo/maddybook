@@ -1,0 +1,63 @@
+@use "variables" as *;
+
+@mixin dark-mode {
+
+    main, header *, footer * {
+        color: $text-light;
+    }
+
+    main {
+        a, a:active, a:hover, a:visited {
+            color: $link-light;
+        }
+    }
+
+    .modal.active {
+        background-color: $bg-modal-dark;
+
+        aside {
+            background-color: $bg-dark;
+            box-shadow: 2px 2px 4px $shadow-modal-dark;
+
+            aside {
+                background-color: #222;
+            }
+        }
+    }
+
+    .buy a {
+        background-color: $bg-button-dark;
+        box-shadow: 1px 1px 4px $shadow-button-dark;
+    }
+
+    header nav details > ul, a.footnote-ref, pre, code {
+        background-color: $bg-feature-dark;
+    }
+
+    img {
+        filter: brightness(0.8) contrast(1.2);
+
+        &.invertable {
+            filter: invert(1) brightness(0.8) contrast(1.2);
+            background-color: transparent;
+        }
+    }
+
+    tbody tr:nth-of-type(odd) td {
+        background-color: $bg-feature-dark;
+    }
+}
+
+body.darkmode {
+    background-color: $bg-dark;
+
+    @include dark-mode;
+}
+
+@media (preferse-color-scheme: dark) {
+    body {
+        background-color: $bg-dark;
+    }
+    
+    @include dark-mode;
+}

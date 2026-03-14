@@ -1,0 +1,63 @@
+@use "variables" as *;
+
+h1, h2 {
+    text-align: center;
+}
+
+@mixin header-footer {
+    margin: 0 auto;
+    max-width: 640px;
+    font-size: 16pt;
+    text-align: center;
+}
+
+header {
+    @include header-footer;
+    border-bottom: 1px solid $border-soft;
+    padding-bottom: 1rem;
+    position: relative;
+
+    a, a:visited, a:active, a:hover {
+        color: $text-dark;
+        text-decoration: none;
+    }
+
+    nav {
+        ul {
+            list-style-type: inline-block;
+            margin: 0.5rem;
+            padding: 0;
+        }
+
+        & > ul > li {
+            display: inline-block;
+            margin: 0;
+            width: calc(100% / 6);
+        }
+
+        details {
+            position: relative;
+
+            & > ul {
+                background-color: $bg-light;
+                position: absolute;
+                z-index: 1000;
+                border: 1px solid $border-soft;
+                border-radius: 3px;
+                padding: 0.5rem;
+                min-width: 15rem;
+            }
+
+            &[open] > summary {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+footer {
+    @include header-footer;
+    padding: 1rem 0;
+    margin-top: 1rem;
+    border-top: 1px solid $border-soft;
+}

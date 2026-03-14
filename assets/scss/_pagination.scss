@@ -1,0 +1,22 @@
+ul.pagination {
+    margin: 1rem 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+
+    li.page-item {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+
+        a {
+            padding: 0 0.5rem;
+            margin: 0;
+        }
+
+        &.active a {
+            font-style: italic;
+            text-decoration: none;
+        }
+    }
+}

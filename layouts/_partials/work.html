@@ -16,16 +16,16 @@
 {{ $work.description | markdownify }}
 <ul class="meta">
     {{- if $work.type }}<li><em>Type:</em> {{ $work.type }}</li>{{- end }}
-    <li><em>Characters and dates:</em>
+    {{- if (and $work.characters $work.dates) }}<li><em>Characters and dates:</em>
         {{- range $k, $v := $work.years }}
             {{ index $work.characters $k }} — {{ $v }}
             {{- if ne (add $k 1) ($work.years | len) }}, {{- end }}
-        {{- end }}</li>
+        {{- end }}</li>{{- end }}
     {{- if $work.cw }}<li><em>CWs:</em> {{ $work.cw }}</li>{{- end }}
     {{- if $work.spoilers }}<li><em>Spoilers:</em> {{ $work.spoilers | markdownify }}</li>{{- end }}
 </ul>
 {{- $subworks := where $works "parent" "eq" $work.title }}
-{{- if gt (len $subworks) 0 }}
+{{- if $subworks }}
     <h3>Associated works</h3>
     <dl>
     {{- range $subwork := where $works "parent" "eq" $work.title }}

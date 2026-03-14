@@ -1,0 +1,30 @@
+@use "variables" as *;
+
+.order {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+
+    a {
+        display: inline-block;
+        margin: 0.5rem;
+    }
+}
+
+.buy {
+    text-align: center;
+    text-indent: 0;
+    margin-top: 0.5rem;
+
+    a {
+        display: inline-block;
+        font-size: 70%;;
+        padding: 0.3rem;
+        margin: 0.2rem 0;
+        background-color: $bg-feature-light;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        box-shadow: 1px 1px 4px $shadow-button-dark;
+        text-decoration: none;
+    }
+}
