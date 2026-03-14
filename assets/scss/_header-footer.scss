@@ -38,18 +38,42 @@ header {
         details {
             position: relative;
 
+            summary {
+                cursor: pointer;
+            }
+
+            &[open] > summary {
+                font-weight: bold;
+            }
+
             & > ul {
                 background-color: $bg-light;
                 position: absolute;
                 z-index: 1000;
                 border: 1px solid $border-soft;
                 border-radius: 3px;
-                padding: 0.5rem;
+                box-shadow: 2px 2px 5px $shadow-button-light;
+                padding: 0.75rem;
                 min-width: 15rem;
+
+                li:first-of-type {
+                    margin-top: 0;
+                }
+
+                li:last-of-type {
+                    margin-bottom: 0;
+                }
             }
 
-            &[open] > summary {
-                font-weight: bold;
+            ul ul {
+                margin-left: 1rem;
+                width: 100%;
+            }
+
+            ul li {
+                display: block;
+                text-align: left;
+                margin: 1rem 0;
             }
         }
     }

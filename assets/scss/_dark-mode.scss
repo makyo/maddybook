@@ -30,8 +30,13 @@
         box-shadow: 1px 1px 4px $shadow-button-dark;
     }
 
-    header nav details > ul, a.footnote-ref, pre, code {
+    a.footnote-ref, pre, code {
         background-color: $bg-feature-dark;
+    }
+
+    header nav details > ul {
+        background-color: $bg-feature-dark;
+        box-shadow: 2px 2px 5px $shadow-button-dark;
     }
 
     img {
