@@ -48,7 +48,7 @@
     }
 }
 
-body.darkmode {
+body.dark-mode {
     background-color: $bg-dark;
 
     @include dark-mode;
