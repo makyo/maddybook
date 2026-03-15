@@ -179,21 +179,4 @@ main {
     // Footnotes moved to _modal.scss
     
 
-    /*
-     * AI warning
-     */
-
-    .gpt {
-        max-width: 640px;
-        border-top: 1px solid $border-soft;
-        color: $text-mid;
-        margin: 1rem auto;
-        padding-top: 1rem;
-        font-size: 8pt;
-        line-height: 1.5;
-        
-        p {
-            text-align: center;
-        }
-    }
 }
