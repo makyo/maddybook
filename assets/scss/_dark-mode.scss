@@ -59,7 +59,7 @@ body.dark-mode {
     @include dark-mode;
 }
 
-@media (preferse-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     body {
         background-color: $bg-dark;
     }
