@@ -59,6 +59,8 @@ body.dark-mode {
     @include dark-mode;
 }
 
+// TODO this currently doesn't play well with the theme switcher.
+/*
 @media (prefers-color-scheme: dark) {
     body {
         background-color: $bg-dark;
@@ -66,3 +68,4 @@ body.dark-mode {
     
     @include dark-mode;
 }
+*/
