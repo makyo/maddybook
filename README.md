@@ -4,8 +4,10 @@ A simple Hugo theme for books.
 
 * Chapters: welcome
 * Anthologies: natch
+* Footnotes and citations: modal
 * Typography: pretty good
 * Nice on mobile: yep
+* LLM-blocking `robots.txt`: included
 
 ## How To
 
