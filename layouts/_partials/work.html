@@ -2,7 +2,7 @@
 {{- $works := .works }}
 {{- $creators := .creators }}
 {{- /* This is really ugly, but alas, it is precisely what we need. */ -}}
-<dt><a href="{{ $work.url }}">{{ $work.title }}</a> <span class="author">by 
+<dt><a href="{{ $work.url }}">{{ $work.title | markdownify }}</a>{{- if (or $work.authors $work.contributors) }} <span class="author">by 
         {{ range $k, $author := $work.authors }}
             {{- if index $creators $author }}<a href="{{ index $creators $author }}" target="_blank">{{ $author | markdownify }}</a>{{ else }}{{ $author | markdownify }}{{ end }}
             {{- if ne (add $k 1) ($work.authors | len) }}, {{ end }}
@@ -11,10 +11,19 @@
             {{ if index $creators $contributor }}<a href="{{ index $creators $contributor }}" target="_blank">{{ $contributor | markdownify }}</a>{{ else }}{{ $contributor | markdownify }}{{ end }}
             <small>(contributor)</small>
         {{- end }}    
-    </span>
+    </span>{{- end}}
 </dt>
 <dd>
+    {{- if $work.image }}
+        <figure>
+            <a href="{{ $work.url }}"{{ if $work.spoiler_image }} class="spoiler-image"{{ end }}>
+                <img src="{{ $work.image }}">
+                <span>{{ $work.spoiler_image_text }}</span>
+            </a>
+        </figure>
+    {{- end }}
     {{ $work.description | markdownify }}
+    {{- if $work.image }}<br class="clear">{{- end }}
     <ul class="meta">
         {{- if $work.type }}<li><em>Type:</em> {{ $work.type }}</li>{{- end }}
         {{- if (and (gt $work.characters 0) (gt $work.years 0)) }}<li><em>Characters and dates:</em>

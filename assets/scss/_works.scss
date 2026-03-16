@@ -16,12 +16,24 @@
 
     dd {
         background-color: $bg-works-body;
+        text-align: left;
         margin: 0 0 2rem 0;
         padding: 0.25rem 1rem 0.25rem 2rem;
         font-size: 16pt;
 
         h2 {
             margin-top: 4rem;
+        }
+
+        figure {
+            display: block;
+            float: left;
+            margin: 0.25rem 1rem 0.25rem 0;
+        }
+
+        .clear {
+            clear: both;
+            display: table;
         }
 
         .meta {

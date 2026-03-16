@@ -8,14 +8,8 @@ description = "A theme for posting entire books"
 homepage = "http://example.com/"
 tags = []
 features = []
-min_version = "0.41.0"
+min_version = "0.157.0"
 
 [author]
-  name = "Your Name"
-  homepage = "https://example.com"
-
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""
+  name = "Madison Rye Progress"
+  homepage = "https://makyo.is"

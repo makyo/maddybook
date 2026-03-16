@@ -8,13 +8,13 @@
         {{- end }}
     </dl>
 
-    {{- range $collection := $collections }}
-        <h2 id="{{ $collection.id }}">{{ $collection.title }}</h2>
-
+    {{- range $collection := $collections }}{{- if (where $works "collection" $collection.id) }}
+        <h2 id="{{ $collection.id }}">{{ $collection.title | markdownify }}</h2>
+        {{ $collection.description | markdownify }}
         <dl>
             {{- range $work := where $works "collection" $collection.id }}
                 {{ partial "work.html" (dict "work" $work "works" $works "creators" $creators) }}
             {{- end }}
         </dl>
-    {{- end }}
+    {{ end }}{{- end }}
 </section>
