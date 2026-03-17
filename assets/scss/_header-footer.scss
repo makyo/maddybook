@@ -6,7 +6,6 @@ h1, h2 {
 
 @mixin header-footer {
     margin: 0 auto;
-    max-width: 640px;
     font-size: 16pt;
     text-align: center;
 }
@@ -29,6 +28,9 @@ header {
     }
 
     nav {
+        max-width: 960px;
+        margin: 0 auto;
+
         ul {
             list-style-type: inline-block;
             margin: 0.5rem;
