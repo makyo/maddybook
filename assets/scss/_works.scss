@@ -7,28 +7,35 @@
         width: 300px;
         text-align: right;
         margin-left: calc(-300px - 1.25rem);
-        border-right: 0.25rem solid $border-callout;
-        float: left;
+        height: 0;
+        overflow: visible;
 
         h3 {
-            padding: 0.25rem 1rem;
+            padding: 0.25rem 1rem 2rem 0;
+            margin-bottom: 0;
+            border-right: 0.25rem solid $border-callout;
         }
 
-        li {
-            list-style-type: none;
-            line-height: 1.2;
-            padding: 0.25rem 1rem;
+        ul { 
+            margin-top: 0;
+            border-right: 0.25rem solid $border-callout;
 
-            &.top {
-                margin-bottom: 1.5rem;
-            }
+            li {
+                list-style-type: none;
+                line-height: 1.2;
+                padding: 0.25rem 1rem;
 
-            &:hover, &.active {
-                background-color: $bg-feature-light;
-            }
+                &.top {
+                    margin-bottom: 1.5rem;
+                }
 
-            a {
-                text-decoration: none;
+                &:hover, &.active {
+                    background-color: $bg-feature-light;
+                }
+
+                a {
+                    text-decoration: none;
+                }
             }
         }
     }
