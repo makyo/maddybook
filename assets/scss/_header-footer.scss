@@ -50,10 +50,6 @@ header {
                 cursor: pointer;
             }
 
-            &[open] > summary {
-                font-weight: bold;
-            }
-
             & > ul {
                 background-color: $bg-light;
                 position: absolute;
