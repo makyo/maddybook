@@ -3,8 +3,6 @@
 @use "header-footer";
 @use "body";
 
-@use "mobile";
-
 @use "theme-toggle";
 @use "dark-mode";
 
@@ -15,3 +13,5 @@
 @use "modal";
 @use "spoiler";
 @use "ai";
+
+@use "mobile";

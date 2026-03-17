@@ -1,6 +1,38 @@
 @use "variables" as *;
 
 .works {
+    & > nav {
+        position: sticky;
+        top: 0;
+        width: 300px;
+        text-align: right;
+        margin-left: calc(-300px - 1.25rem);
+        border-right: 0.25rem solid $border-callout;
+        float: left;
+
+        h3 {
+            padding: 0.25rem 1rem;
+        }
+
+        li {
+            list-style-type: none;
+            line-height: 1.2;
+            padding: 0.25rem 1rem;
+
+            &.top {
+                margin-bottom: 1.5rem;
+            }
+
+            &:hover, &.active {
+                background-color: $bg-feature-light;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
     dt {
         background: $bg-works-header;
         margin: 0;

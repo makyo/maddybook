@@ -44,4 +44,22 @@
         float: none;
         text-indent: 0;
     }
+
+    .works > nav {
+        position: static;
+        top: auto;
+        width: 100%;
+        margin-left: 0;
+        border: none;
+        float: none;
+        text-align: left;
+
+        li {
+            list-style-type: disc;
+            
+            &.top {
+                display: none;
+            }
+        }
+    }
 }

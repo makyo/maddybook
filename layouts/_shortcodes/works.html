@@ -1,7 +1,18 @@
 {{- $works := index hugo.Data (.Get "corpus") }}
 {{- $collections := index hugo.Data (.Get "collections") }}
 {{- $creators := index hugo.Data (.Get "creators") }}
-<section class="works" id="works-top">{{- /* Ideally, we would allow multiple of these per page... */ -}}
+{{- $id := slicestr (sha256 (delimit (slice (.Get "corpus") (.Get "collections") (.Get "creators")) ",")) 0 7 }}
+<section class="works" id="{{ $id }}">
+    <nav>
+        <h3>Categories</h3>
+        <ul>
+            <li class="top"><a href="#{{ $id }}">Top ↑</a></li>
+            {{- range $collection := $collections }}{{ if (where $works "collection" $collection.id) }}
+                <li class="nav-highlight" data-collection="{{ $collection.id }}-{{ $id }}"><a href="#{{ $collection.id }}-{{ $id }}">{{ $collection.title | markdownify | plainify }}</a></li>
+            {{ end }}{{ end }}
+        </ul>
+    </nav>
+
     <dl>
         {{- range $work := sort (where (where $works "collection" nil) "parent" nil) "title" "asc" }}
             {{ partial "work.html" (dict "work" $work "works" $works "creators" $creators) }}
@@ -9,12 +20,14 @@
     </dl>
 
     {{- range $collection := $collections }}{{- if (where $works "collection" $collection.id) }}
-        <h2 id="{{ $collection.id }}">{{ $collection.title | markdownify }}</h2>
-        {{ $collection.description | markdownify }}
-        <dl>
-            {{- range $work := where $works "collection" $collection.id }}
-                {{ partial "work.html" (dict "work" $work "works" $works "creators" $creators) }}
-            {{- end }}
-        </dl>
+        <div id="{{ $collection.id }}-{{ $id }}">
+            <h2>{{ $collection.title | markdownify }}</h2>
+            {{ $collection.description | markdownify }}
+            <dl>
+                {{- range $work := where $works "collection" $collection.id }}
+                    {{ partial "work.html" (dict "work" $work "works" $works "creators" $creators) }}
+                {{- end }}
+            </dl>
+        </div>
     {{ end }}{{- end }}
 </section>
