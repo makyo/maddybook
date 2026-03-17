@@ -1,14 +1,14 @@
 {{- $works := index hugo.Data (.Get "corpus") }}
 {{- $collections := index hugo.Data (.Get "collections") }}
 {{- $creators := index hugo.Data (.Get "creators") }}
-{{- $id := slicestr (sha256 (delimit (slice (.Get "corpus") (.Get "collections") (.Get "creators")) ",")) 0 7 }}
+{{- $id := (.Get "corpus") }}
 <section class="works" id="{{ $id }}">
     <nav>
         <h3>Categories</h3>
         <ul>
             <li class="top"><a href="#{{ $id }}">Top ↑</a></li>
             {{- range $collection := $collections }}{{ if (where $works "collection" $collection.id) }}
-                <li class="nav-highlight" data-collection="{{ $collection.id }}-{{ $id }}"><a href="#{{ $collection.id }}-{{ $id }}">{{ $collection.title | markdownify | plainify }}</a></li>
+                <li class="nav-highlight" data-collection="{{ $id }}-{{ $collection.id }}"><a href="#{{ $id }}-{{ $collection.id }}">{{ $collection.title | markdownify | plainify }}</a></li>
             {{ end }}{{ end }}
         </ul>
     </nav>
@@ -20,7 +20,7 @@
     </dl>
 
     {{- range $collection := $collections }}{{- if (where $works "collection" $collection.id) }}
-        <div id="{{ $collection.id }}-{{ $id }}">
+        <div id="{{ $id }}-{{ $collection.id }}">
             <h2>{{ $collection.title | markdownify }}</h2>
             {{ $collection.description | markdownify }}
             <dl>
