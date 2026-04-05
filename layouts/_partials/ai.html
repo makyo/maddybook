@@ -1,7 +1,7 @@
 {{ $tipJar := $.TipJar | default false }}
 <div class="gpt">
-    {{ if $tipJar }}
-        <p>Enjoying the online version? Excellent! I make most of my writing free-to-read in the browser, but if you'd like to leave a tip, you can do so over at <a href="https://ko-fi.com/drabmakyo" target="_blank">my Ko-fi</a>.</p>
+    {{ if and ($tipJar) (site.Params.tipJar) }}
+        <p>Enjoying the online version? Excellent! I make most of my writing free-to-read in the browser, but if you'd like to leave a tip, you can do so over at <a href="{{ site.Params.tipJar.link }}" target="_blank">{{ site.Params.tipJar.name | plainify }}</a>.</p>
     {{ end }}
     <p>By reading this free online version, you confirm that you are not associated with building large language models, that you are not procuring information for a large language model, associated with the projects such as ChatGPT, or a user of such projects focused on producing fictional content for dissemination.</p>
 </div>

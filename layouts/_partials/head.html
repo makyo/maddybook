@@ -34,11 +34,13 @@
     <meta property="og:description" content="{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . }}{{ end }}" />
 
     <!-- Twitter Card metadata -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@makyo_writes" />
-    <meta name="twitter:title" content="{{ partial "title/full.html" . }}" />
-    <meta name="twitter:description" content="{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . }}{{ end }}" />
-    <meta name="twitter:image" content="{{ if .Params.ogimg }}{{ .Params.ogimg | absURL }}{{else}}{{ "/square.png" | absURL }}{{ end }}" />
+     {{ if .Site.Params.twitter }}
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="{{ .Site.Params.twitter }}" />
+      <meta name="twitter:title" content="{{ partial "title/full.html" . }}" />
+      <meta name="twitter:description" content="{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . }}{{ end }}" />
+      <meta name="twitter:image" content="{{ if .Params.ogimg }}{{ .Params.ogimg | absURL }}{{else}}{{ "/square.png" | absURL }}{{ end }}" />
+    {{ end }}
 
     <!-- JSON-LD metadata -->
     <script type="application/ld+json">
