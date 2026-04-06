@@ -3,6 +3,7 @@
 {{- $creators := index hugo.Data (.Get "creators") }}
 {{- $id := (.Get "corpus") }}
 <section class="works" id="{{ $id }}">
+    {{- if $collections }}
     <nav>
         <h3>Categories</h3>
         <ul>
@@ -12,6 +13,7 @@
             {{ end }}{{ end }}
         </ul>
     </nav>
+    {{- end }}
 
     <dl>
         {{- range $work := sort (where (where $works "collection" nil) "parent" nil) "title" "asc" }}
