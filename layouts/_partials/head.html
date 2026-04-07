@@ -24,6 +24,11 @@
     {{- range .Site.Params.customCSS }}
         <link rel="stylesheet" type="text/css" href="{{ . }}" />
     {{- end }}
+
+    {{- $desc := or (.Site.Params.headline) (partial "title/site.html" .) }}
+    {{- if or (eq .Type "story") (eq .Type "chapter") }}
+        {{- $desc = (or .Description .Summary) | plainify }}
+    {{- end }}
     <meta name="viewport" content="width=device-width" />
     <!-- OpenGraph metadata -->
     <meta property="og:title" content="{{ partial "title/full.html" . }}" />
@@ -31,16 +36,22 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="{{ if .Site.Params.ogimg }}{{ .Site.Params.ogimg | absURL }}{{else}}{{ "/square.png" | absURL }}{{ end }}" />
     <meta property="og:url" content="{{ .Permalink }}" />
-    <meta property="og:description" content="{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . }}{{ end }}" />
+    <meta property="og:description" content="{{ $desc }}" />
 
     <!-- Twitter Card metadata -->
-     {{ if .Site.Params.twitter }}
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="{{ .Site.Params.twitter }}" />
-      <meta name="twitter:title" content="{{ partial "title/full.html" . }}" />
-      <meta name="twitter:description" content="{{ if .Site.Params.headline }}{{ .Site.Params.headline }}{{ else }}{{ partial "title/site.html" . }}{{ end }}" />
-      <meta name="twitter:image" content="{{ if .Params.ogimg }}{{ .Params.ogimg | absURL }}{{else}}{{ "/square.png" | absURL }}{{ end }}" />
-    {{ end }}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{ partial "title/full.html" . }}" />
+    <meta name="twitter:description" content="{{ $desc }}" />
+    <meta name="twitter:image" content="{{ if .Params.ogimg }}{{ .Params.ogimg | absURL }}{{else}}{{ "/square.png" | absURL }}{{ end }}" />
+    {{ if and site.Params.social site.Params.social.twitter }}
+        {{ with site.Params.social.twitter }}
+            {{- $content := . }}
+            {{- if not (strings.HasPrefix . "@") }}
+                {{- $content = printf "@%v" . }}
+            {{- end }}
+            <meta name="twitter:site" content="{{ $content }}" />
+        {{- end }}
+    {{- end }}
 
     <!-- JSON-LD metadata -->
     <script type="application/ld+json">
