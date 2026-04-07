@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{.Content}}
-<main id="main">
+<main id="main" class="story">
     {{ if .Title }}<h2>{{ .Title }}</h2>{{ end }}
     {{ $paginator := .Paginate (.Pages) 1 }}
     {{ partial "pagination.html" . }}
