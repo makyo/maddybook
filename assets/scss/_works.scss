@@ -16,7 +16,7 @@
             border-right: 0.25rem solid $border-callout;
         }
 
-        ul { 
+        ul {
             margin-top: 0;
             border-right: 0.25rem solid $border-callout;
 
@@ -31,10 +31,6 @@
 
                 &:hover, &.active {
                     background-color: $bg-feature-light;
-                }
-
-                a {
-                    text-decoration: none;
                 }
             }
         }
