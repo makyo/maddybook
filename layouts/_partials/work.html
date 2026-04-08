@@ -1,44 +1,80 @@
 {{- $work := .work }}
 {{- $works := .works }}
 {{- $creators := .creators }}
-{{- /* This is really ugly, but alas, it is precisely what we need. */ -}}
-<dt><a href="{{ $work.url }}">{{ $work.title | markdownify }}</a>{{- if (or $work.authors $work.contributors) }} <span class="author">by 
-        {{ range $k, $author := $work.authors }}
-            {{- if index $creators $author }}<a href="{{ index $creators $author }}" target="_blank">{{ $author | markdownify }}</a>{{ else }}{{ $author | markdownify }}{{ end }}
-            {{- if ne (add $k 1) ($work.authors | len) }}, {{ end }}
+
+{{- $title := $work.title }}
+{{- $authors := $work.authors }}
+{{- $contributors := $work.contributors }}
+{{- $description := $work.description }}
+{{- $cw := $work.cw }}
+{{- $spoilers := $work.spoilers }}
+{{- $url := $work.url }}
+{{- $characters := or $work.characters }}
+{{- $years := $work.years }}
+
+{{- if and (not $url) $work.atPage }}
+    {{- with site.GetPage $work.atPage }}
+        {{- $url = $work.atPage }}
+        {{- if not $title }} {{- $title = .Params.title }} {{- end }}
+        {{- if and (not $authors) .Params.author }} {{- $authors = slice .Params.author }} {{- end }}
+        {{- if not $description }} {{- $description = .Params.summary }} {{- end }}
+        {{- if not $cw }} {{- $cw = .Params.cw }} {{- end }}
+        {{- if not $spoilers }} {{- $spoilers = .Params.spoiler }} {{- end }}
+        {{- if and (not $characters) (.Params.character) }}
+            {{- $maybeYear := split .Params.character "—" }}
+            {{- if eq ($maybeYear | len) 2 }}
+                {{- $characters = slice (index $maybeYear 0) }}
+                {{- $years = slice (index $maybeYear 1) }}
+            {{- else }}
+                {{- $characters = slice (.Params.character) }}
+            {{- end }}
         {{- end }}
-        {{- range $contributor := $work.contributors }},
+    {{- end }}
+{{- end }}
+
+<dt><a href="{{ $url }}">{{ $title | markdownify }}</a>{{- if (or $authors $contributors) }} <span class="author">by
+        {{ range $k, $author := $authors }}
+            {{- if index $creators $author }}<a href="{{ index $creators $author }}" target="_blank">{{ $author | markdownify }}</a>{{ else }}{{ $author | markdownify }}{{ end }}
+            {{- if ne (add $k 1) ($authors | len) }}, {{ end }}
+        {{- end }}
+        {{- range $contributor := $contributors }},
             {{ if index $creators $contributor }}<a href="{{ index $creators $contributor }}" target="_blank">{{ $contributor | markdownify }}</a>{{ else }}{{ $contributor | markdownify }}{{ end }}
             <small>(contributor)</small>
-        {{- end }}    
+        {{- end }}
     </span>{{- end}}
 </dt>
 <dd>
     {{- if $work.image }}
         <figure>
-            <a href="{{ $work.url }}"{{ if $work.spoiler_image }} class="spoiler-image"{{ end }}>
+            <a href="{{ $url }}"{{ if $work.spoiler_image }} class="spoiler-image"{{ end }}>
                 <img src="{{ $work.image }}">
                 <span>{{ $work.spoiler_image_text }}</span>
             </a>
         </figure>
     {{- end }}
-    {{ $work.description | markdownify }}
+    {{ $description | markdownify }}
     {{- if $work.image }}<br class="clear">{{- end }}
     <ul class="meta">
         {{- if $work.type }}<li><em>Type:</em> {{ $work.type }}</li>{{- end }}
-        {{- if (and (gt $work.characters 0) (gt $work.years 0)) }}<li><em>Characters and dates:</em>
-                {{- range $k, $v := $work.years }}
-                    {{ index $work.characters $k }} — {{ $v }}
-                    {{- if ne (add $k 1) ($work.years | len) }}, {{- end }}
-                {{- end }}</li>{{- end }}
-            {{- if $work.cw }}<li><em>CWs:</em> {{ $work.cw }}</li>{{- end }}
-            {{- if $work.spoilers }}<li><em>Spoilers:</em> {{ $work.spoilers | markdownify }}</li>{{- end }}
+        {{- if (and (gt $characters 0) (gt $years 0)) }}<li><em>Characters and dates:</em>
+                {{- range $k, $v := $years }}
+                    {{ index $characters $k }} — {{ $v }}
+                    {{- if ne (add $k 1) ($years | len) }}, {{- end }}
+                {{- end }}</li>
+        {{- else if (gt $characters 0) }}<li><em>Characters:</em>
+                {{- range $k, $v := $characters }}
+                    {{ $v }}
+                    {{- if ne (add $k 1) ($characters | len) }}, {{- end }}
+                {{- end }}</li>
+        {{- end }}
+        {{- if $cw }}<li><em>CWs:</em> {{ $cw | markdownify }}</li>{{- end }}
+        {{- if $spoilers }}<li><em>Spoilers:</em> {{ $spoilers | markdownify }}</li>{{- end }}
     </ul>
-    {{- $subworks := where $works "parent" "eq" $work.title }}
+    {{- $subworks := where $works "parent" "eq" $title }}
     {{- if $subworks }}
         <h3>Associated works</h3>
         <dl>
-            {{- range $subwork := where $works "parent" "eq" $work.title }}
+            {{- range $subwork := where $works "parent" "eq" $title }}
                 {{ partial "work.html" (dict "work" $subwork "works" $works "creators" $creators) }}
             {{- end }}
         </dl>
