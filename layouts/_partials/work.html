@@ -18,7 +18,7 @@
         {{- if not $title }} {{- $title = .Params.title }} {{- end }}
         {{- if and (not $authors) .Params.author }} {{- $authors = slice .Params.author }} {{- end }}
         {{- if not $description }} {{- $description = .Params.summary }} {{- end }}
-        {{- if not $cw }} {{- $cw := .Params.cw }} {{- end }}
+        {{- if not $cw }} {{- $cw = .Params.cw }} {{- end }}
         {{- if not $spoilers }} {{- $spoilers = .Params.spoiler }} {{- end }}
         {{- if and (not $characters) (.Params.character) }}
             {{- $maybeYear := split .Params.character "—" }}
