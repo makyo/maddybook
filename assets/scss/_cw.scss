@@ -1,0 +1,16 @@
+.cw {
+    border: 2px dotted red;
+    font-size: 14pt;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+    color: darkred;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cw:before {
+    display: block;
+    content: "⚠️ Content Warning";
+    font-weight: bold;
+}
