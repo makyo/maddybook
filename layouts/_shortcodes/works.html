@@ -16,7 +16,11 @@
     {{- end }}
 
     <dl>
-        {{- range $work := sort (where (where $works "collection" nil) "parent" nil) "title" "asc" }}
+        {{- $worklist := sort (where (where $works "collection" nil) "parent" nil) "title" "asc" }}
+        {{- if (.Get "unsorted") }}
+            {{- $worklist = (where (where $works "collection" nil) "parent" nil) }}
+        {{- end }}
+        {{- range $work := $worklist }}
             {{ partial "work.html" (dict "work" $work "works" $works "creators" $creators) }}
         {{- end }}
     </dl>

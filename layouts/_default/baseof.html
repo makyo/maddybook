@@ -3,7 +3,7 @@
     {{- partial "head.html" . -}}
     <body class="dark-mode">
         {{- partial "header.html" . -}}
-        <div id="content">
+        <div id="content{{- if .Page.Params.extraClass }} {{ .Page.Params.extraClass }}{{- end }}">
         {{- block "main" . }}{{- end }}
         </div>
         {{- partial "footer.html" . -}}
