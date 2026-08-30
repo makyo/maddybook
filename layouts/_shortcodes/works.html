@@ -3,16 +3,16 @@
 {{- $creators := index hugo.Data (.Get "creators") }}
 {{- $id := (.Get "corpus") }}
 <section class="works" id="{{ $id }}">
-    {{- if $collections }}
-    <nav>
-        <h3>Categories</h3>
-        <ul>
-            <li class="top"><a href="#{{ $id }}">Top ↑</a></li>
-            {{- range $collection := $collections }}{{ if (where $works "collection" $collection.id) }}
-                <li class="nav-highlight" data-collection="{{ $id }}-{{ $collection.id }}"><a href="#{{ $id }}-{{ $collection.id }}">{{ $collection.title | markdownify | plainify }}</a></li>
-            {{ end }}{{ end }}
-        </ul>
-    </nav>
+    {{- if and $collections (ne (.Get "hideSidebar") "true") }}
+        <nav>
+            <h3>Categories</h3>
+            <ul>
+                <li class="top"><a href="#{{ $id }}">Top ↑</a></li>
+                {{- range $collection := $collections }}{{ if (where $works "collection" $collection.id) }}
+                    <li class="nav-highlight" data-collection="{{ $id }}-{{ $collection.id }}"><a href="#{{ $id }}-{{ $collection.id }}">{{ $collection.title | markdownify | plainify }}</a></li>
+                {{ end }}{{ end }}
+            </ul>
+        </nav>
     {{- end }}
 
     <dl>
