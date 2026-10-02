@@ -38,6 +38,10 @@ For anthologies, each work can be in a Markdown/HTML file of type `story`. Creat
 
 This is good for basic short stories. If you have short stories that are logically grouped together, you can add a `category` entry in their YAML, then create a `categories.yaml` file in `data`:
 
+If the short story is in the content directory, you can use `atPage` to import
+any information not present in the work list in order to prevent the need for
+redundant listings. If you do this, do not set the `url` field.
+
 ```yaml
 - id: my-cateogry
   name: My Category
@@ -94,3 +98,5 @@ These go in the `params` section of your site-wide `hugo.toml`.
 The `params.tipJar` section is used to link to a way to support the author at the end of chapters. If these values are not defined, no such links are emitted.
 - `link`: A link readers can use to support the author. Placed
 - `name`: The link text used to link to the tip jar
+
+The twitter key from the `params.social` map {as used upstream by Jenkins}
