@@ -47,7 +47,7 @@
     {{- if $work.image }}
         <figure>
             <a href="{{ $url }}"{{ if $work.spoiler_image }} class="spoiler-image"{{ end }}>
-                <img src="{{ $work.image }}">
+                <img src="{{ $work.image }}"{{ if $work.alt }} alt="{{ $work.alt }}"{{ end }}>
                 <span>{{ $work.spoiler_image_text }}</span>
             </a>
         </figure>
